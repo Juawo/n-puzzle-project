@@ -2,7 +2,7 @@ from core.node import Node
 
 # Função que retorna o nó raiz do problema
 def getStartNode(problem):
-    return Node(problem.intial_state)
+    return Node(problem.initial_state)
 
 # Função que gera um filho do nó atual
 def getChildNode(problem, parent_node, action):
