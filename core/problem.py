@@ -16,7 +16,7 @@ class Problem:
         if row > 0 : actions.append("cima")
         if row < self.board_size - 1 : actions.append("baixo")
         if collumn > 0 : actions.append("esquerda")
-        if collumn < self.board_size - 1 : actions("direita")
+        if collumn < self.board_size - 1 : actions.append("direita")
 
         return actions
 
