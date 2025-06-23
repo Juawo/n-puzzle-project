@@ -2,10 +2,10 @@ class Node:
 
     # Construturo da classe
     def __init__(self, state, parent=None, action=None, path_cost=0, depth=0):
-        self.state = state,
-        self.parent = parent,
-        self.action = action,
-        self.path_cost = path_cost,
+        self.state = state
+        self.parent = parent
+        self.action = action
+        self.path_cost = path_cost
         self.depth = depth
     
     # Compara o menor custo de caminho entre dois Nós
@@ -14,6 +14,7 @@ class Node:
     
     #   Função para expandir um nó, ou seja, ver quais filhos ele possui, salvando os resultados das ações possíveis nele 
     def expand(self, problem):
+        # print("[DEBUG] Chamando actions em Node Expand: ", problem.actions(self.state))
         children = []
         for action in problem.actions(self.state):
             new_state = problem.result(self.state, action)
