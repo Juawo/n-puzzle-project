@@ -1,3 +1,5 @@
+# Definição de Problema de Busca -> Slide Slides 02 - Agentes e Problemas de Busca -> pág 25
+
 class Problem:
     
     # Construtor da classe

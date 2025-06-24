@@ -1,3 +1,5 @@
+# Definição de Node -> Slide Slides 02 - Agentes e Problemas de Busca -> pág 67
+
 class Node:
 
     # Construturo da classe
