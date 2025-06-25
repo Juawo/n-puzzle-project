@@ -20,6 +20,7 @@ def breadthFirstSearch(problem):
         explorados.add(state)
 
         if problem.isGoalState(node.state) == True:
+            print("Sequência de ações : ", search_tree.getActionSequence(node))
             return search_tree.getActionSequence(node)
 
         for child in node.expand(problem):

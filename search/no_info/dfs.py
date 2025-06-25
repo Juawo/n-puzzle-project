@@ -11,7 +11,7 @@ def depthFirstSearch(problem):
     passos = 0
     while len(stack) > 0:
         node = stack.pop()
-    
+        print(node.depth)
         if node.state not in marked:
             if problem.isGoalState(node.state) == True:
                 # print("Sequência de ações : ", search_tree.getActionSequence(node))
