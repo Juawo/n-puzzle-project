@@ -20,7 +20,7 @@ class Node:
         children = []
         for action in problem.actions(self.state):
             new_state = problem.result(self.state, action)
-            cost = problem.path_cost(self.path_cost, self.state, action, new_state)
+            cost = problem.pathCost(self.path_cost, self.state, action, new_state)
             child = Node(
                 state=new_state,
                 parent=self,
@@ -29,6 +29,7 @@ class Node:
                 depth=self.depth + 1
             )
             children.append(child)
+        # print(children)
         return children
 
     #   Função para encontrar qual o caminho de ações para aquele Nó/Estado 

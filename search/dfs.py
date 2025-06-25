@@ -1,21 +1,24 @@
 from core.problem import Problem
 from core.node import Node
+from core import search_tree
 
-def depthFirstSearch(search_tree,problem):
+def depthFirstSearch(problem):
     node = search_tree.getStartNode(problem)
     stack = []
-    marked = []
+    marked = set()
     stack.append(node)
 
+    passos = 0
     while len(stack) > 0:
         node = stack.pop()
-
-        if not marked[node]:
-            if problem.goal_state(node.state) == True:
-                print("Solução encontrada no Node = ", node.state)
+        passos += 1
+        print(f"[PASSO {passos}] Verificando estado:", node.state)
+        
+        if  node.state not in marked:
+            if problem.isGoalState(node.state) == True:
                 print("Sequência de ações : ", search_tree.getActionSequence(node))
                 return search_tree.getActionSequence(node)
-            marked.append(node)
-            for child in node.expand:
-                if not marked[child]:
+            marked.add(node.state)
+            for child in node.expand(problem):
+                if child.state not in marked:
                     stack.append(child)

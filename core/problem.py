@@ -20,7 +20,7 @@ class Problem:
         if row < self.board_size - 1 : actions.append("baixo")
         if collumn > 0 : actions.append("esquerda")
         if collumn < self.board_size - 1 : actions.append("direita")
-        print(actions)
+        # print(actions)
         return actions
 
     # Função que retorna o resultado de aplicar determinada ação em determinado estado
@@ -42,18 +42,18 @@ class Problem:
         
         temp = new_state[index]
         new_state[index] = new_state[swap_index]
-        print(new_state[index])
+        # print(new_state[index])
 
         new_state[swap_index] = temp
-        print(new_state[swap_index])
+        # print(new_state[swap_index])
 
         return tuple(new_state)
     
     # Função para verificar se o estado atual é o estado objetivo
-    def goal_state(self, state):
+    def isGoalState(self, state):
         return self.goal_state == state
 
     # Função para retornar o custo do caminho, custo do caminho até agora + 1
-    def path_cost(self, cost_so_far, state1, action, state2):
+    def pathCost(self, cost_so_far, state1, action, state2):
         return cost_so_far + 1
     

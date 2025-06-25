@@ -7,7 +7,7 @@ def getStartNode(problem):
 # Função que gera um filho do nó atual
 def getChildNode(problem, parent_node, action):
     new_state = problem.result(parent_node, action)
-    new_cost = problem.path_cost(parent_node.path_cost, parent_node.state, action, new_state)
+    new_cost = problem.pathCost(parent_node.pathCost, parent_node.state, action, new_state)
     return Node(
         state=new_state,
         parent=parent_node,
