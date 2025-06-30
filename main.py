@@ -27,11 +27,14 @@ estado_objetivo = (0,1,2,
 
 # Criar o problema
 puzzle = Problem(estado_inicial, estado_objetivo, board_size=3)
-# print(heuristics.misplaced_tiles(puzzle.initial_state, puzzle.goal_state))
+dfs = depthFirstSearch(puzzle)
+
+# print(heuristics.manhattan_distance(puzzle.initial_state, puzzle.goal_state, puzzle.board_size))
+
 
 # print(puzzle.isGoalState(estado_inicial))
 
-actionSequence = depthLimitedSearch(puzzle, 0)
+# actionSequence = depthLimitedSearch(puzzle, 0)
 # print("Solução encontrada:", actionSequence)
 # actionSequence = depthFirstSearch(puzzle)
 # actionSequence1 = breadthFirstSearch(puzzle)
