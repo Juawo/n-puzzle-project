@@ -16,10 +16,10 @@ class Problem:
         collumn = index % self.board_size
         actions = []
         
-        if row > 0 : actions.append("cima")
         if row < self.board_size - 1 : actions.append("baixo")
         if collumn > 0 : actions.append("esquerda")
         if collumn < self.board_size - 1 : actions.append("direita")
+        if row > 0 : actions.append("cima")
         # print(actions)
         return actions
 
