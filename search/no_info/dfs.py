@@ -14,7 +14,7 @@ def depthFirstSearch(problem):
         print(node.depth)
         if node.state not in marked:
             if problem.isGoalState(node.state) == True:
-                # print("Sequência de ações : ", search_tree.getActionSequence(node))
+                print("Sequência de ações : ", search_tree.getActionSequence(node))
                 return search_tree.getActionSequence(node)
             marked.add(node.state)
             for child in node.expand(problem):
