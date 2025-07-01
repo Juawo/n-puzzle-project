@@ -3,6 +3,7 @@ from core.node import Node
 from search.no_info.dfs import depthFirstSearch
 from search.no_info.bfs import breadthFirstSearch
 from search.no_info.dls import depthLimitedSearch
+from search.no_info.ids import iterativeDepthSearch
 from search.with_info import heuristics
 
 # Estado inicial simples (0 é o espaço vazio)
@@ -27,7 +28,8 @@ estado_objetivo = (0,1,2,
 
 # Criar o problema
 puzzle = Problem(estado_inicial, estado_objetivo, board_size=3)
-dfs = depthFirstSearch(puzzle)
+# dfs = depthFirstSearch(puzzle)
+ids = iterativeDepthSearch(puzzle)
 
 # print(heuristics.manhattan_distance(puzzle.initial_state, puzzle.goal_state, puzzle.board_size))
 

@@ -19,16 +19,13 @@ def depthLimitedSearch(problem, limit):
         marked.add(node.state)
 
         if problem.isGoalState(node.state):
-            print("Sequência de ações : ", search_tree.getActionSequence(node))
+            print("Sequência de ações:", search_tree.getActionSequence(node))
             return search_tree.getActionSequence(node)
 
         if node.depth == limit:
             cutoff = True
-            print("Limite atingido.")
-
-        if node.depth < limit:
+        else:
             for child in node.expand(problem):
                 stack.append(child)
-        else:
-            return cutoff
 
+    return 'cutoff' if cutoff else 'failure'
