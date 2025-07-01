@@ -1,6 +1,5 @@
 from search.no_info.dls import depthLimitedSearch
 
-
 def iterativeDepthSearch(problem):
     depth = 0
     while True:

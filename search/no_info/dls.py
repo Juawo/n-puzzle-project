@@ -10,10 +10,9 @@ def depthLimitedSearch(problem, limit):
 
     while stack:
         node = stack.pop()
-        print(node.depth)
-        print(node.state)
+        print (node.depth)
 
-        if node in marked:
+        if node.state in marked:
             continue
         
         marked.add(node.state)
@@ -28,4 +27,8 @@ def depthLimitedSearch(problem, limit):
             for child in node.expand(problem):
                 stack.append(child)
 
-    return 'cutoff' if cutoff else 'failure'
+    if cutoff == True:
+        return 'cutoff'
+    else:
+        return 'failure'
+
