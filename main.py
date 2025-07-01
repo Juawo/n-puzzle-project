@@ -31,7 +31,6 @@ puzzle = Problem(estado_inicial, estado_objetivo, board_size=3)
 dfs = depthFirstSearch(puzzle)
 bfs = breadthFirstSearch(puzzle)
 dls = depthLimitedSearch(puzzle,10)
-# dfs = depthFirstSearch(puzzle)
 ids = iterativeDepthSearch(puzzle)
 
 # print(heuristics.manhattan_distance(puzzle.initial_state, puzzle.goal_state, puzzle.board_size))

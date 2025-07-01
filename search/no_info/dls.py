@@ -23,6 +23,19 @@ def depthLimitedSearch(problem, limit):
         marked.add(node.state)
 
         if problem.isGoalState(node.state):
+            end_time = time.time()
+            path = search_tree.getActionSequence(node)
+            
+            save_results(
+                algoritmo="DLS",
+                estado_inicial=problem.initial_state,
+                estado_objetivo=problem.goal_state,
+                caminho=path,
+                profundidade=node.depth,
+                nos_expandidos=expand_node,
+                estados_expandidos=len(marked),
+                tempo_exec=end_time - start_time
+            )
             print("Sequência de ações:", search_tree.getActionSequence(node))
             return search_tree.getActionSequence(node)
 
