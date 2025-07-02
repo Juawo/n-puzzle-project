@@ -7,14 +7,14 @@ Estado objetivo:
 (0, 1, 2, 3, 4, 5, 6, 7, 8)
 
 Caminho de ações:
-['esquerda', 'cima']
+['cima', 'direita', 'esquerda', 'direita', 'esquerda', 'direita', 'esquerda', 'baixo', 'esquerda', 'cima']
 
-Número de ações até solução: 2
-Profundidade da solução: 2
+Número de ações até solução: 10
+Profundidade da solução: 10
 
 Número de nós expandidos: 0
-Quantidade de estados expandidos (distintos): 9
+Quantidade de estados expandidos (distintos): 15
 
-Tempo de execução: 0.0001 segundos
+Tempo de execução: 0.0009 segundos
 
 --- FIM ---

@@ -4,7 +4,7 @@ from core import search_tree
 from utils.results import save_results
 import time
 
-def depthLimitedSearch(problem, limit):
+def depthLimitedSearch(problem, limit, ids=False):
     node = search_tree.getStartNode(problem)
     stack = [node]
     marked = set()
@@ -25,9 +25,14 @@ def depthLimitedSearch(problem, limit):
         if problem.isGoalState(node.state):
             end_time = time.time()
             path = search_tree.getActionSequence(node)
-            
+            algorithm = ""
+            if(ids):
+                algorithm = "IDS"
+            else:
+                algorithm = "DLS"
+                
             save_results(
-                algoritmo="DLS",
+                algoritmo=algorithm,
                 estado_inicial=problem.initial_state,
                 estado_objetivo=problem.goal_state,
                 caminho=path,
