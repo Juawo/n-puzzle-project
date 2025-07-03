@@ -15,6 +15,14 @@ Profundidade da solução: 550
 Número de nós expandidos: 550
 Quantidade de estados expandidos (distintos): 550
 
+<<<<<<< HEAD
 Tempo de execução: 0.0050 segundos
+=======
+<<<<<<< HEAD
+Tempo de execução: 0.0065 segundos
+=======
+Tempo de execução: 0.0066 segundos
+>>>>>>> 2f5143671d833e706a0a7b9682c31070bcac6af1
+>>>>>>> 6261b3682f0b95a80a287bb25dbcc5762f8c52d4
 
 --- FIM ---
