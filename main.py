@@ -8,8 +8,8 @@ from search.with_info import heuristics
 
 # Estado inicial simples (0 é o espaço vazio)
 estado_inicial =  (3,1,2,
-                   6,4,5,
-                   0,7,8)
+                   4,0,5,
+                   6,7,8)
 # Estado objetivo (padrão do puzzle 15)
 estado_objetivo = (0,1,2,
                    3,4,5,
@@ -29,6 +29,8 @@ estado_objetivo = (0,1,2,
 # Criar o problema
 puzzle = Problem(estado_inicial, estado_objetivo, board_size=3)
 # dfs = depthFirstSearch(puzzle)
+# bfs = breadthFirstSearch(puzzle)
+# dls = depthLimitedSearch(puzzle,10)
 ids = iterativeDepthSearch(puzzle)
 
 # print(heuristics.manhattan_distance(puzzle.initial_state, puzzle.goal_state, puzzle.board_size))
