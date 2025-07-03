@@ -49,5 +49,6 @@ def depthLimitedSearch(problem, limit, ids=False):
         else:
             for child in node.expand(problem):
                 stack.append(child)
+            expand_node += 1
 
     return 'cutoff' if cutoff else 'failure'

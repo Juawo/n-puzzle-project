@@ -12,9 +12,9 @@ Caminho de ações:
 Número de ações até solução: 2
 Profundidade da solução: 2
 
-Número de nós expandidos: 0
+Número de nós expandidos: 4
 Quantidade de estados expandidos (distintos): 9
 
-Tempo de execução: 0.0003 segundos
+Tempo de execução: 0.0002 segundos
 
 --- FIM ---
