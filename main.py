@@ -6,6 +6,7 @@ from search.no_info.dls import depthLimitedSearch
 from search.no_info.ids import iterativeDepthSearch
 
 from search.with_info.greddy import greedySearch
+from search.with_info.a_star import aStarSearch
 
 # Estado inicial simples (0 é o espaço vazio)
 estado_inicial =  (3,1,2,
@@ -22,5 +23,6 @@ puzzle = Problem(estado_inicial, estado_objetivo, board_size=3)
 # bfs = breadthFirstSearch(puzzle)
 # dls = depthLimitedSearch(puzzle,10)
 # ids = iterativeDepthSearch(puzzle)
-greedy = greedySearch(puzzle)
-print(greedy)
+# greedy = greedySearch(puzzle)
+a_star = aStarSearch(puzzle)
+print(a_star)
