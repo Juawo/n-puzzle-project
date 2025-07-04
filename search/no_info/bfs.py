@@ -39,6 +39,7 @@ def breadthFirstSearch(problem):
             )
             
             print("Sequência de ações : ", search_tree.getActionSequence(node))
+            print(len(explorados))
             return search_tree.getActionSequence(node)
 
         expand_node += 1

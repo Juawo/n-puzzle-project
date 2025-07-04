@@ -28,11 +28,13 @@ def depthFirstSearch(problem):
                 estados_expandidos=len(marked),
                 tempo_exec=end_time - start_time
                 )
+                print(len(marked))
 
                 return search_tree.getActionSequence(node)
             marked.add(node.state)
-            expand_nodes += 1
 
             for child in node.expand(problem):
                 if child.state not in marked:
                     stack.append(child)
+            expand_nodes += 1
+    print(len(marked))
