@@ -1,4 +1,4 @@
-Algoritmo: GreedySearch
+Algoritmo: A*
 
 Heuristica: misplaced_tiles
 
@@ -14,8 +14,8 @@ Caminho de ações:
 Número de ações até solução: 2
 Profundidade da solução: 2
 
-Número de nós expandidos: 1
-Quantidade de estados expandidos (distintos): 2
+Número de nós expandidos: 2
+Quantidade de estados expandidos (distintos): 3
 
 Tempo de execução: 0.0001 segundos
 

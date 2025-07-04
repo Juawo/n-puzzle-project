@@ -40,7 +40,7 @@ def greedySearch(problem, heuristic_type="misplaced_tiles"):
 
             return search_tree.getActionSequence(node)
         
-        closed.add(node)
+        closed.add(node.state)
 
         for sucessor in node.expand(problem) :
             
@@ -64,8 +64,11 @@ def greedySearch(problem, heuristic_type="misplaced_tiles"):
             else :
                 sucessor.heuristic = heuristics.manhattan_distance(sucessor.state, problem.goal_state)
             
-            if sucessor not in closed and sucessor not in open_list :
+            if sucessor.state not in closed :
                heapq.heappush(open_list, (sucessor.heuristic, sucessor)) 
+            
+            print(f"    Sucessor do Node ({node.state})\n    State = {sucessor.state} || Heuristic = {sucessor.heuristic} \n f(n) = {sucessor.heuristic}\n")
+
         expand_nodes += 1
 
     return "Failure"
