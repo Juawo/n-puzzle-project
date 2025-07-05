@@ -4,6 +4,7 @@ import heapq
 from utils.results import save_results
 import time
 
+# Se quiser gerar os dados com a heuristica manhattan, coloca heuristic_type="manhattan_distance"
 def aStarSearch(problem, heuristic_type="misplaced_tiles"):
     start_node = search_tree.getStartNode(problem)
     expand_nodes = 0
