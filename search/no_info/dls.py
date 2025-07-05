@@ -39,7 +39,8 @@ def depthLimitedSearch(problem, limit, ids=False):
                 profundidade=node.depth,
                 nos_expandidos=expand_node,
                 estados_expandidos=len(marked),
-                tempo_exec=end_time - start_time
+                tempo_exec=end_time - start_time,
+                board_size=problem.board_size
             )
             print("Sequência de ações:", search_tree.getActionSequence(node))
             return search_tree.getActionSequence(node)

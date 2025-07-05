@@ -37,7 +37,8 @@ def aStarSearch(problem, heuristic_type="misplaced_tiles"):
                 nos_expandidos=expand_nodes,
                 estados_expandidos=len(visited_nodes),
                 tempo_exec=end_time - start_time,
-                heuristc=heuristic_type
+                heuristic=heuristic_type,
+                board_size=problem.board_size
             )
 
             return search_tree.getActionSequence(node)

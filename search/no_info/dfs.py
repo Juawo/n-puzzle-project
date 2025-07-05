@@ -26,7 +26,8 @@ def depthFirstSearch(problem):
                 profundidade=node.depth,
                 nos_expandidos=expand_nodes,
                 estados_expandidos=len(marked),
-                tempo_exec=end_time - start_time
+                tempo_exec=end_time - start_time,
+                board_size=problem.board_size
                 )
                 print(len(marked))
 

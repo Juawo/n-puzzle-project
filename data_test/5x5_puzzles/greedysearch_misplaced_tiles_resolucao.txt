@@ -1,22 +1,27 @@
-Algoritmo: GreedySearch
-
-Heuristica: misplaced_tiles
+Algoritmo: GREEDYSEARCH
+Heurística usada: misplaced_tiles
 
 Estado inicial:
-(5, 1, 2, 3, 4, 0, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24)
+5 1 2 3 4
+0 6 7 8 9
+10 11 12 13 14
+15 16 17 18 19
+20 21 22 23 24
 
 Estado objetivo:
-(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24)
+0 1 2 3 4
+5 6 7 8 9
+10 11 12 13 14
+15 16 17 18 19
+20 21 22 23 24
 
 Caminho de ações:
 ['cima']
 
 Número de ações até solução: 1
 Profundidade da solução: 1
-
 Número de nós expandidos: 0
 Quantidade de estados expandidos (distintos): 1
-
 Tempo de execução: 0.0001 segundos
 
 --- FIM ---
