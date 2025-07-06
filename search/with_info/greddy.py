@@ -5,7 +5,7 @@ import heapq
 import time
 
 # Se quiser gerar os dados com a heuristica manhattan, coloca heuristic_type="manhattan_distance"
-def greedySearch(problem, heuristic_type="misplaced_tiles"): 
+def greedySearch(problem, heuristic_type="manhattan_distance"): 
 
     start_node = search_tree.getStartNode(problem)
     expand_nodes = 0
@@ -64,7 +64,7 @@ def greedySearch(problem, heuristic_type="misplaced_tiles"):
             if heuristic_type == "misplaced_tiles" :
                 sucessor.heuristic = heuristics.misplaced_tiles(sucessor.state, problem.goal_state)
             else :
-                sucessor.heuristic = heuristics.manhattan_distance(sucessor.state, problem.goal_state)
+                sucessor.heuristic = heuristics.manhattan_distance(sucessor.state, problem.goal_state, problem.board_size)
             
             if sucessor.state not in closed :
                heapq.heappush(open_list, (sucessor.heuristic, sucessor)) 

@@ -1,5 +1,5 @@
 Algoritmo: GREEDYSEARCH
-Heurística usada: misplaced_tiles
+Heurística usada: manhattan_distance
 
 Estado inicial:
 5 1 2 3 4

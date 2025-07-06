@@ -1,5 +1,5 @@
-Algoritmo: GREEDYSEARCH
-Heurística usada: misplaced_tiles
+Algoritmo: A*
+Heurística usada: manhattan_distance
 
 Estado inicial:
 1 2 0
@@ -16,8 +16,8 @@ Caminho de ações:
 
 Número de ações até solução: 2
 Profundidade da solução: 2
-Número de nós expandidos: 1
-Quantidade de estados expandidos (distintos): 2
-Tempo de execução: 0.0002 segundos
+Número de nós expandidos: 2
+Quantidade de estados expandidos (distintos): 3
+Tempo de execução: 0.0003 segundos
 
 --- FIM ---
