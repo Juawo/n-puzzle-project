@@ -17,6 +17,6 @@ Número de ações até solução: 2
 Profundidade da solução: 2
 Número de nós expandidos: 6
 Quantidade de estados expandidos (distintos): 7
-Tempo de execução: 0.0000 segundos
+Tempo de execução: 0.0001 segundos
 
 --- FIM ---
