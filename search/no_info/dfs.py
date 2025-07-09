@@ -10,6 +10,7 @@ def depthFirstSearch(problem):
     stack = []
     marked = set()
     stack.append(node)
+    arvore_busca = []
 
     expand_nodes = 0
     start_time = time.time()
@@ -27,14 +28,15 @@ def depthFirstSearch(problem):
                 nos_expandidos=expand_nodes,
                 estados_expandidos=len(marked),
                 tempo_exec=end_time - start_time,
-                board_size=problem.board_size
+                board_size=problem.board_size,
+                arvore_gerada=arvore_busca
                 )
-                print(len(marked))
 
                 return search_tree.getActionSequence(node)
             marked.add(node.state)
 
             for child in node.expand(problem):
+                arvore_busca.append((node.state, child.state, child.action))
                 if child.state not in marked:
                     stack.append(child)
             expand_nodes += 1

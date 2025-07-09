@@ -4,11 +4,11 @@ import heapq
 from utils.results import save_results
 import time
 
-# Se quiser gerar os dados com a heuristica manhattan, coloca heuristic_type="manhattan_distance"
 def aStarSearch(problem, heuristic_type="manhattan_distance"):
     start_node = search_tree.getStartNode(problem)
     expand_nodes = 0
     start_time = time.time()
+    arvore_busca = []
 
     if heuristic_type == "misplaced_tiles":
         start_node.heuristic = heuristics.misplaced_tiles(problem.initial_state, problem.goal_state)
@@ -22,7 +22,6 @@ def aStarSearch(problem, heuristic_type="manhattan_distance"):
 
     while priority_queue :
         _, node = heapq.heappop(priority_queue)
-        visited_nodes.add(node.state)
 
         print(f" State = {node.state} || Path Cost = {node.path_cost} || Heuristic = {node.heuristic} \n f(n) = {node.path_cost + node.heuristic}\n")
 
@@ -39,12 +38,16 @@ def aStarSearch(problem, heuristic_type="manhattan_distance"):
                 estados_expandidos=len(visited_nodes),
                 tempo_exec=end_time - start_time,
                 heuristic=heuristic_type,
-                board_size=problem.board_size
+                board_size=problem.board_size,
+                arvore_gerada=arvore_busca
             )
 
             return search_tree.getActionSequence(node)
         
+        visited_nodes.add(node.state)
+        
         for sucessor in node.expand(problem):
+            arvore_busca.append((node.state, sucessor.state, sucessor.action))
             if heuristic_type == "misplaced_tiles":
                 sucessor.heuristic = heuristics.misplaced_tiles(sucessor.state, problem.goal_state)
             else:

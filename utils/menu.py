@@ -107,6 +107,22 @@ def display_execution_options(board_size):
         print("  3 - Back")
         print("  0 - Exit")
 
+def display_heuristic_options():
+    print("------ Select Heuristic Type ------")
+    print("  1 - Manhattan Distance")
+    print("  2 - Misplaced Tiles")
+
+def get_heuristic_choice():
+    display_heuristic_options()
+    choice = input("Select heuristic option: ")
+    if choice == "1":
+        return "manhattan_distance"
+    elif choice == "2":
+        return "misplaced_tiles"
+    else:
+        print("Invalid option. Using Manhattan Distance as default.")
+        return "manhattan_distance"
+
 def display_searchs_name(board_size):
     names = ["BFS", "DFS", "IDS", "Greedy", "A*"]
     if(board_size == 5):
@@ -134,11 +150,13 @@ def swithc_searchs(board_sizes, input, problem):
                 print("Open the directory data_test/ids_resolucao.txt")
                 pause_clean(2)
             case "4" : 
-                greedySearch(problem)
+                heuristic = get_heuristic_choice()
+                greedySearch(problem, heuristic)
                 print("Open the directory data_test/greedysearch_resolucao.txt")
                 pause_clean(2)
             case "5" : 
-                aStarSearch(problem)
+                heuristic = get_heuristic_choice()
+                aStarSearch(problem,heuristic)
                 print("Open the directory data_test/a*_resolucao.txt")
                 pause_clean(2)
             case "0" :
@@ -158,22 +176,25 @@ def swithc_searchs(board_sizes, input, problem):
             case _   : 
                 print("Invalid option. Please try again.")
 
-        
-
-
-
 def execute_all_search(board_size, problem):
+    print("For informed algorithms (Greedy and A*), select heuristic:")
+    heuristic = get_heuristic_choice()
+    pause_clean(1)
+
     searchs = [breadthFirstSearch, depthFirstSearch, iterativeDepthSearch, greedySearch, aStarSearch]
     if board_size < 5:
         for search in searchs:
             print(f"Runing {search.__name__}")
-            search(problem)
+            if search.__name__ in ['greedySearch', 'aStarSearch']:
+                search(problem, heuristic)
+            else:
+                search(problem)
             pause_clean(5, "Loading next search")
     else:
         # For 5x5, only informed searches
         for search in [greedySearch, aStarSearch]:
             print(f"Runing {search.__name__}")
-            search(problem)
+            search(problem,heuristic)
             pause_clean(5, "Loading next search")
     pause_clean(1, "Executation complete!", False)
 

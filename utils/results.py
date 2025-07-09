@@ -48,10 +48,14 @@ def save_results(
         f.write(f"Quantidade de estados expandidos (distintos): {estados_expandidos}\n")
         f.write(f"Tempo de execução: {tempo_exec:.4f} segundos\n")
 
+        print(arvore_gerada)
         if arvore_gerada:
-            f.write("\nÁrvore gerada:\n")
-            for estado, prof, acao in arvore_gerada:
-                f.write(f"Prof {prof} - Estado: {estado} - Ação: {acao}\n")
+            f.write("\nÁrvore de busca (transições pai → filho):\n")
+            for pai, filho, acao in arvore_gerada:
+                if filho == estado_objetivo:
+                    f.write(f"*{pai} --[{acao}]--> {filho}*\n")
+                f.write(f"{pai} --[{acao}]--> {filho}\n")
+
 
         f.write("\n--- FIM ---\n")
 

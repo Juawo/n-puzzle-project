@@ -11,6 +11,7 @@ def depthLimitedSearch(problem, limit, ids=False):
     cutoff = False
     start_time = time.time()
     expand_node = 0
+    arvore_busca = []
 
     while stack:
         node = stack.pop()
@@ -40,7 +41,8 @@ def depthLimitedSearch(problem, limit, ids=False):
                 nos_expandidos=expand_node,
                 estados_expandidos=len(marked),
                 tempo_exec=end_time - start_time,
-                board_size=problem.board_size
+                board_size=problem.board_size,
+                arvore_gerada=arvore_busca
             )
             print("Sequência de ações:", search_tree.getActionSequence(node))
             return search_tree.getActionSequence(node)
@@ -49,6 +51,7 @@ def depthLimitedSearch(problem, limit, ids=False):
             cutoff = True
         else:
             for child in node.expand(problem):
+                arvore_busca.append((node.state, child.state, child.action))
                 stack.append(child)
             expand_node += 1
 

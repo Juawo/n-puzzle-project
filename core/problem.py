@@ -10,7 +10,7 @@ class Problem:
     
     # Função que retorna as ações possivéis no estado atual
     def actions(self, state):
-        # print("[DEBUG] Chamando actions com state : ", state)
+        
         index = state.index(0)
         row = index // self.board_size
         collumn = index % self.board_size

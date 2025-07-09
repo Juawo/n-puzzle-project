@@ -4,12 +4,13 @@ from utils.results import save_results
 import heapq
 import time
 
-# Se quiser gerar os dados com a heuristica manhattan, coloca heuristic_type="manhattan_distance"
+
 def greedySearch(problem, heuristic_type="manhattan_distance"): 
 
     start_node = search_tree.getStartNode(problem)
     expand_nodes = 0
     start_time = time.time()
+    arvore_busca = []
 
     if heuristic_type == "misplaced_tiles":
         start_node.heuristic = heuristics.misplaced_tiles(problem.initial_state, problem.goal_state)
@@ -24,7 +25,6 @@ def greedySearch(problem, heuristic_type="manhattan_distance"):
     while open_list:
         _, node = heapq.heappop(open_list)
 
-        
         if problem.isGoalState(node.state):
             end_time = time.time()
             save_results(
@@ -36,31 +36,16 @@ def greedySearch(problem, heuristic_type="manhattan_distance"):
                 nos_expandidos=expand_nodes,
                 estados_expandidos=len(closed),
                 tempo_exec=end_time - start_time,
-                heuristc=heuristic_type
+                arvore_gerada=arvore_busca,
+                heuristic=heuristic_type,
+                board_size=problem.board_size
             )
-
             return search_tree.getActionSequence(node)
         
         closed.add(node.state)
 
         for sucessor in node.expand(problem) :
-            
-            if(problem.isGoalState(sucessor.state)):
-                end_time = time.time()
-                save_results(
-                    algoritmo="GreedySearch",
-                    estado_inicial=problem.initial_state,
-                    estado_objetivo=problem.goal_state,
-                    caminho=search_tree.getActionSequence(sucessor),
-                    profundidade=sucessor.depth,
-                    nos_expandidos=expand_nodes,
-                    estados_expandidos=len(closed),
-                    tempo_exec=end_time - start_time,
-                    heuristic=heuristic_type,
-                    board_size=problem.board_size
-                )
-                return search_tree.getActionSequence(sucessor)
-            
+            arvore_busca.append((node.state, sucessor.state, sucessor.action))
             if heuristic_type == "misplaced_tiles" :
                 sucessor.heuristic = heuristics.misplaced_tiles(sucessor.state, problem.goal_state)
             else :

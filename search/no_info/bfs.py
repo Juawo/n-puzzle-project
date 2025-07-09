@@ -11,6 +11,8 @@ def breadthFirstSearch(problem):
     fronteira = deque()
     fronteira.append(start_node)
     explorados = set()
+    arvore_busca = []
+    
 
     start_time = time.time()
     expand_node = 0
@@ -36,17 +38,20 @@ def breadthFirstSearch(problem):
                 nos_expandidos=expand_node,
                 estados_expandidos=len(explorados),
                 tempo_exec=end_time - start_time,
-                board_size=problem.board_size
+                board_size=problem.board_size,
+                arvore_gerada=arvore_busca
             )
             
             print("Sequência de ações : ", search_tree.getActionSequence(node))
-            print(len(explorados))
+            node.exibir_arvore(arvore_busca, problem.board_size)
             return search_tree.getActionSequence(node)
 
         expand_node += 1
 
         for child in node.expand(problem):
+            arvore_busca.append((node.state, child.state, child.action))
             if tuple(child.state) not in explorados:
                 fronteira.append(child)
+        
 
     return []
