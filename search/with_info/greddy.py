@@ -10,6 +10,7 @@ def greedySearch(problem, heuristic_type="manhattan_distance"):
     start_node = search_tree.getStartNode(problem)
     expand_nodes = 0
     start_time = time.time()
+    # Essa variável foi adicionada após o vídeo, para que pudesse ser exibida a árvore gerada
     arvore_busca = []
 
     if heuristic_type == "misplaced_tiles":
@@ -45,6 +46,7 @@ def greedySearch(problem, heuristic_type="manhattan_distance"):
         closed.add(node.state)
 
         for sucessor in node.expand(problem) :
+            # Adicionando os node expandidos na arvore de busca gerada
             arvore_busca.append((node.state, sucessor.state, sucessor.action))
             if heuristic_type == "misplaced_tiles" :
                 sucessor.heuristic = heuristics.misplaced_tiles(sucessor.state, problem.goal_state)

@@ -11,6 +11,7 @@ def depthLimitedSearch(problem, limit, ids=False):
     cutoff = False
     start_time = time.time()
     expand_node = 0
+    # Essa variável foi adicionada após o vídeo, para que pudesse ser exibida a árvore gerada
     arvore_busca = []
 
     while stack:
@@ -51,6 +52,7 @@ def depthLimitedSearch(problem, limit, ids=False):
             cutoff = True
         else:
             for child in node.expand(problem):
+                # Adicionando os node expandidos na arvore de busca gerada
                 arvore_busca.append((node.state, child.state, child.action))
                 stack.append(child)
             expand_node += 1

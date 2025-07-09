@@ -11,6 +11,7 @@ def breadthFirstSearch(problem):
     fronteira = deque()
     fronteira.append(start_node)
     explorados = set()
+    # Essa variável foi adicionada após o vídeo, para que pudesse ser exibida a árvore gerada
     arvore_busca = []
     
 
@@ -49,6 +50,7 @@ def breadthFirstSearch(problem):
         expand_node += 1
 
         for child in node.expand(problem):
+            # Adicionando os node expandidos na arvore de busca gerada
             arvore_busca.append((node.state, child.state, child.action))
             if tuple(child.state) not in explorados:
                 fronteira.append(child)

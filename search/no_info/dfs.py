@@ -10,6 +10,7 @@ def depthFirstSearch(problem):
     stack = []
     marked = set()
     stack.append(node)
+    # Essa variável foi adicionada após o vídeo, para que pudesse ser exibida a árvore gerada
     arvore_busca = []
 
     expand_nodes = 0
@@ -36,6 +37,7 @@ def depthFirstSearch(problem):
             marked.add(node.state)
 
             for child in node.expand(problem):
+            # Adicionando os node expandidos na arvore de busca gerada
                 arvore_busca.append((node.state, child.state, child.action))
                 if child.state not in marked:
                     stack.append(child)

@@ -35,7 +35,7 @@ class Node:
             path.append((node.parent.state, node.action))
             node = node.parent
         return list(reversed(path))
-    
+    # Exibir a árvore de busca gerada
     def exibir_arvore(self, arvore_busca, board_size):
         """Exibe a árvore de busca com destaque para o caminho da solução."""
         def formatar_estado(estado, size):
@@ -59,12 +59,3 @@ class Node:
                 print("✔ " + linha)
             else:
                 print("  " + linha)
-
-    def _caminho_solucao_nodes(self):
-        """Retorna a lista de nós do caminho da solução, do início até este nó."""
-        node = self
-        caminho = []
-        while node is not None:
-            caminho.append(node)
-            node = node.parent
-        return list(reversed(caminho))
